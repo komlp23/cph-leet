@@ -1,0 +1,89 @@
+{
+  "name": "cphleet",
+  "displayName": "Competitive Programming Helper: Leetcode (CPH)",
+  "description": "Fetch and run Leetcode sample test cases within your VS Code environment",
+  "version": "0.0.3",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "icon": "image.png",
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cph.fetchTestCases",
+        "title": "CPH: Fetch Test Cases"
+      },
+      {
+        "command": "cph.runCode",
+        "title": "CPH: Run Test Cases"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "cph.fetchTestCases",
+        "key": "ctrl+alt+f",
+        "mac": "cmd+alt+f",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "cph.runCode",
+        "key": "ctrl+alt+r",
+        "mac": "cmd+alt+r",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "cph.fetchTestCases",
+          "group": "navigation",
+          "when": "resourceLangId == cpp || resourceLangId == python || resourceLangId == javascript"
+        },
+        {
+          "command": "cph.runCode",
+          "group": "navigation",
+          "when": "resourceLangId == cpp || resourceLangId == python || resourceLangId == javascript"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "CPH LeetCode Settings",
+      "properties": {
+        "cph.language.cpp.run": {
+          "type": "string",
+          "default": "g++ -o $fileNameWithoutExt $filename && .\\$fileNameWithoutExt",
+          "description": "Command to run C++ files."
+        },
+        "cph.language.python.run": {
+          "type": "string",
+          "default": "py $filename",
+          "description": "Command to run Python files."
+        },
+        "cph.language.javascript.run": {
+          "type": "string",
+          "default": "node $filename",
+          "description": "Command to run JavaScript files."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.96.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.16.0"
+  },
+  "dependencies": {
+    "chromedriver": "^132.0.1",
+    "selenium": "^2.20.0"
+  }
+}

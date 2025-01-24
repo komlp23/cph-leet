@@ -5,7 +5,7 @@ A vs code extension to scrape test cases from letcode and also stores them in a 
 ## Features
 
 in the command pallete run:
-CPH: Fetch Test Cases to fetch test cases
-CPH: Run Test Cases t run code against fetched test cases
+- CPH: Fetch Test Cases to fetch test cases
+- CPH: Run Test Cases t0 run code against fetched test cases
 
 
